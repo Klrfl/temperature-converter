@@ -1,0 +1,76 @@
+:root {
+  color-scheme: light dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  padding: 1rem;
+}
+
+button:hover {
+  user-select: none;
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(5px);
+}
+
+header {
+  padding: 2rem;
+  text-align: center;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  /* min-height: 100vh; */
+}
+
+.card {
+  outline: 1px solid #aaa;
+  padding: 2rem;
+  max-width: 70ch;
+}
+
+.card + .card {
+  margin-top: 1rem;
+}
+
+label {
+  display: block;
+  padding-block: 1rem;
+}
+
+input,
+select {
+  padding: 1rem;
+}
+
+button[type="submit"] {
+  background: #333;
+  width: 100%;
+  text-align: center;
+  margin-block: 1rem;
+}
+
+button[type="submit"]:hover {
+  background: #444;
+}
+
+@media (prefers-color-scheme: light) {
+  button[type="submit"]:hover {
+    background: #ddd;
+  }
+}

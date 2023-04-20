@@ -16,27 +16,34 @@
       </p>
     </header>
     <main>
-      <div class="card">
+      <div class="card card--input">
         <div class="input-container">
+          <p>
+            Select your target temperature, and input your initial temperature.
+          </p>
           <form>
             <label for="inputTempSelect">Convert from</label>
             <select name="" id="inputTempSelect">
-              <option value="">Fahrenheit</option>
-              <option value="">Celcius</option>
+              <option value="C" selected>Celcius</option>
+              <option value="F">Fahrenheit</option>
             </select>
+
             <label for="tempInput">Temperature value</label>
             <input type="number" name="temp" id="tempInput" />
+
             <label for="targetTempSelect">Convert to</label>
             <select name="tempSelect" id="targetTempSelect">
-              <option value="">choose one</option>
-              <option value="">Fahrenheit</option>
-              <option value="">Celcius</option>
-              <option value="">choose one</option>
+              <option value="F" selected>Fahrenheit</option>
+              <option value="C">Celcius</option>
             </select>
 
             <button type="submit">Convert</button>
           </form>
         </div>
+      </div>
+
+      <div class="card card--result">
+        <p></p>
       </div>
     </main>
 

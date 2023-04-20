@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature converter</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Simple temperature converter</h1>
+      <p>
+        This is a simple temperature converter app built with vanilla
+        JavaScript.
+      </p>
+    </header>
+    <main>
+      <div class="card">
+        <div class="input-container">
+          <form>
+            <label for="inputTempSelect">Convert from</label>
+            <select name="" id="inputTempSelect">
+              <option value="">Fahrenheit</option>
+              <option value="">Celcius</option>
+            </select>
+            <label for="tempInput">Temperature value</label>
+            <input type="number" name="temp" id="tempInput" />
+            <label for="targetTempSelect">Convert to</label>
+            <select name="tempSelect" id="targetTempSelect">
+              <option value="">choose one</option>
+              <option value="">Fahrenheit</option>
+              <option value="">Celcius</option>
+              <option value="">choose one</option>
+            </select>
+
+            <button type="submit">Convert</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

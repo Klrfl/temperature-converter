@@ -1,5 +1,6 @@
 :root {
   color-scheme: light dark;
+  --card-outline: #444;
 }
 
 * {
@@ -39,7 +40,7 @@ main {
 }
 
 .card {
-  outline: 1px solid #aaa;
+  outline: 1px solid var(--card-outline);
   padding: 2rem;
   max-width: 70ch;
 }
@@ -48,13 +49,35 @@ main {
   margin-top: 1rem;
 }
 
-label {
-  display: block;
-  padding-block: 1rem;
+.card form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  grid-template-areas:
+    "initial-values results"
+    "initial-values results"
+    "convert-btn convert-btn";
 }
 
 input,
+label {
+  display: block;
+  width: 100%;
+}
+
+label {
+  padding-block: 1rem;
+}
 select {
+  padding: 0.5rem 1rem;
+}
+
+input {
+  padding: 1rem;
+}
+
+p.result {
+  margin: 0;
   padding: 1rem;
 }
 
@@ -63,6 +86,7 @@ button[type="submit"] {
   width: 100%;
   text-align: center;
   margin-block: 1rem;
+  grid-area: convert-btn;
 }
 
 button[type="submit"]:hover {
@@ -70,6 +94,13 @@ button[type="submit"]:hover {
 }
 
 @media (prefers-color-scheme: light) {
+  :root {
+    --card-outline: #eee;
+  }
+
+  button[type="submit"] {
+    background: #efefef;
+  }
   button[type="submit"]:hover {
     background: #ddd;
   }

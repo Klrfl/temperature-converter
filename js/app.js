@@ -18,7 +18,7 @@ inputTempSelect.addEventListener("input", () => {
 
 tempInput.addEventListener("input", (e) => {
   e.preventDefault();
-  initialTempValue = tempInput.value;
+  initialTempValue = parseInt(tempInput.value);
   displayResults();
 });
 
@@ -29,26 +29,39 @@ targetTempSelect.addEventListener("input", (e) => {
 });
 
 // add new formulas here
+// keys for initialTemp, subkeys for targetTemp
 const convertTable = {
   F: {
-    F: () => initialTempValue,
     C: () => ((initialTempValue - 32) * 5) / 9,
     K: () => ((initialTempValue - 32) * 5) / 9 + 273.15,
   },
+
   C: {
-    C: () => initialTempValue,
     F: () => (initialTempValue * 9) / 5 + 32,
-    K: () => initialTempValue - 273.15,
+    K: () => initialTempValue + 273.15,
+  },
+
+  K: {
+    C: () => initialTempValue - 273.15,
+    F: () => ((initialTempValue - 273.15) * 9) / 5 + 32,
   },
 };
 
 function convert() {
+  if (initialTemp === targetTemp) {
+    return "Huh?";
+  }
+
+  if (!initialTempValue) {
+    return 0;
+  }
+
   for (const key in convertTable) {
     if (key === initialTemp) {
       // search inside the key for convert function
       for (const subKey in convertTable[key]) {
-        if (subKey == targetTemp) {
-          return convertTable[key][subKey]();
+        if (subKey === targetTemp) {
+          return convertTable[key][subKey]().toFixed(2);
         }
       }
     }

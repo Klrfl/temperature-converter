@@ -1,6 +1,7 @@
 :root {
   color-scheme: light dark;
-  --card-outline: #444;
+  --dark-grey: #37373b;
+  --accent: rgb(39, 83, 180);
 }
 
 * {
@@ -40,9 +41,9 @@ main {
 }
 
 .card {
-  outline: 1px solid var(--card-outline);
+  outline: 1px solid var(--dark-grey);
   padding: 2rem;
-  max-width: 70ch;
+  max-width: 75ch;
 }
 
 .card + .card {
@@ -50,13 +51,13 @@ main {
 }
 
 .card form {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
-  grid-template-areas:
-    "initial-values results"
-    "initial-values results"
-    "convert-btn convert-btn";
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card form > * {
+  flex: 1 1 20ch;
 }
 
 input,
@@ -65,11 +66,20 @@ label {
   width: 100%;
 }
 
+input {
+  background: var(--dark-grey);
+  border: none;
+  border-bottom: 1px solid var(--accent);
+}
+
 label {
   padding-block: 1rem;
 }
+
 select {
+  border: none;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 
 input {
@@ -79,29 +89,11 @@ input {
 p.result {
   margin: 0;
   padding: 1rem;
-}
-
-button[type="submit"] {
-  background: #333;
-  width: 100%;
-  text-align: center;
-  margin-block: 1rem;
-  grid-area: convert-btn;
-}
-
-button[type="submit"]:hover {
-  background: #444;
+  border-bottom: 1px solid var(--accent);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --card-outline: #eee;
-  }
-
-  button[type="submit"] {
-    background: #efefef;
-  }
-  button[type="submit"]:hover {
-    background: #ddd;
+    --dark-grey: #eee;
   }
 }

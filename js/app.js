@@ -9,24 +9,30 @@ let initialTemp = inputTempSelect.value;
 let initialTempValue = tempInput.value;
 let targetTemp = targetTempSelect.value;
 
-inputTempSelect.addEventListener("change", () => {
+inputTempSelect.addEventListener("input", () => {
   initialTemp = inputTempSelect.value;
 });
 
-tempInput.addEventListener("change", () => {
+tempInput.addEventListener("input", (e) => {
+  e.preventDefault();
   initialTempValue = tempInput.value;
+  displayResults();
 });
 
-targetTempSelect.addEventListener("change", () => {
+targetTempSelect.addEventListener("input", (e) => {
+  e.preventDefault();
   targetTemp = targetTempSelect.value;
+  displayResults();
 });
 
 // add new formulas here
 const convertTable = {
   F: {
+    F: () => initialTempValue,
     C: () => ((initialTempValue - 32) * 5) / 9,
   },
   C: {
+    C: () => initialTempValue,
     F: () => (initialTempValue * 9) / 5 + 32,
   },
 };
@@ -45,11 +51,5 @@ function convert() {
 }
 
 function displayResults() {
-  resultP.innerText = convert();
+  resultP.innerText = Math.round(convert(), 2);
 }
-
-submitBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  console.log(initialTemp, initialTempValue, targetTemp);
-  displayResults();
-});

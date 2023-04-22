@@ -9,8 +9,11 @@ let initialTemp = inputTempSelect.value;
 let initialTempValue = tempInput.value;
 let targetTemp = targetTempSelect.value;
 
+window.addEventListener("load", displayResults);
+
 inputTempSelect.addEventListener("input", () => {
   initialTemp = inputTempSelect.value;
+  displayResults();
 });
 
 tempInput.addEventListener("input", (e) => {
@@ -30,10 +33,12 @@ const convertTable = {
   F: {
     F: () => initialTempValue,
     C: () => ((initialTempValue - 32) * 5) / 9,
+    K: () => ((initialTempValue - 32) * 5) / 9 + 273.15,
   },
   C: {
     C: () => initialTempValue,
     F: () => (initialTempValue * 9) / 5 + 32,
+    K: () => initialTempValue - 273.15,
   },
 };
 
@@ -51,5 +56,5 @@ function convert() {
 }
 
 function displayResults() {
-  resultP.innerText = Math.round(convert(), 2);
+  resultP.innerText = convert();
 }

@@ -1,7 +1,7 @@
 :root {
   color-scheme: light dark;
-  --dark-grey: #37373b;
-  --accent: rgb(39, 83, 180);
+  --dark-grey: #24242a;
+  --accent: #2753b4;
 }
 
 * {
@@ -63,6 +63,7 @@ main {
 input,
 label {
   display: block;
+  line-height: 1rem;
   width: 100%;
 }
 
@@ -87,8 +88,10 @@ input {
 }
 
 p.result {
+  background: var(--dark-grey);
   margin: 0;
   padding: 1rem;
+  line-height: 1rem;
   border-bottom: 1px solid var(--accent);
 }
 

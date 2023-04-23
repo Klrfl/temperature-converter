@@ -1,6 +1,7 @@
 :root {
   color-scheme: light dark;
   --dark-grey: #24242a;
+  --dark-grey-hover: #2a2a31;
   --accent: #2753b4;
 }
 
@@ -11,6 +12,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Open Sans", sans-serif;
 }
 
 button {
@@ -61,20 +63,13 @@ main {
 }
 
 input,
-label {
-  display: block;
-  line-height: 1rem;
-  width: 100%;
-}
-
-input {
+select {
   background: var(--dark-grey);
-  border: none;
-  border-bottom: 1px solid var(--accent);
 }
 
-label {
-  padding-block: 1rem;
+input:hover,
+select:hover {
+  background: var(--dark-grey-hover);
 }
 
 select {
@@ -83,16 +78,30 @@ select {
   cursor: pointer;
 }
 
+input,
+label {
+  display: block;
+  line-height: 1rem;
+  width: 100%;
+}
+
+label {
+  padding-block: 1rem;
+  font-size: 0.8rem;
+}
+
 input {
+  border: none;
+  border-bottom: 5px solid var(--accent);
   padding: 1rem;
 }
 
-p.result {
+.result {
   background: var(--dark-grey);
   margin: 0;
   padding: 1rem;
   line-height: 1rem;
-  border-bottom: 1px solid var(--accent);
+  border-bottom: 5px solid var(--accent);
 }
 
 @media (prefers-color-scheme: light) {

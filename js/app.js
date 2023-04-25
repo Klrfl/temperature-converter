@@ -53,7 +53,7 @@ function convert() {
   }
 
   if (!initialTempValue) {
-    return 0;
+    initialTempValue = 0;
   }
 
   for (const key in convertTable) {

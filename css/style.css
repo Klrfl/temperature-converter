@@ -39,7 +39,6 @@ header {
 main {
   display: grid;
   place-items: center;
-  /* min-height: 100vh; */
 }
 
 .card {
@@ -62,20 +61,10 @@ main {
   flex: 1 1 20ch;
 }
 
-input,
-select {
-  background: var(--dark-grey);
-}
-
-input:hover,
-select:hover {
-  background: var(--dark-grey-hover);
-}
-
-select {
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+label {
+  padding-block: 1rem;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 input,
@@ -85,27 +74,38 @@ label {
   width: 100%;
 }
 
-label {
-  padding-block: 1rem;
-  font-size: 0.8rem;
+select,
+input,
+.result {
+  background: var(--dark-grey);
+  border: none;
+  padding: 1rem;
 }
 
-input {
-  border: none;
+select:hover,
+input:hover {
+  background: var(--dark-grey-hover);
+}
+
+select {
+  padding-block: 0.5rem;
+  cursor: pointer;
+}
+
+input,
+.result {
   border-bottom: 5px solid var(--accent);
   padding: 1rem;
+  line-height: 1rem;
 }
 
 .result {
-  background: var(--dark-grey);
-  margin: 0;
-  padding: 1rem;
-  line-height: 1rem;
-  border-bottom: 5px solid var(--accent);
+  display: block;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --dark-grey: #eee;
+    --dark-grey-hover: #dedede;
   }
 }

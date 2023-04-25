@@ -3,7 +3,7 @@ const tempInput = document.getElementById("tempInput");
 const targetTempSelect = document.getElementById("targetTempSelect");
 
 const submitBtn = document.getElementById("submit");
-const resultP = document.querySelector("p.result");
+const resultP = document.querySelector(".result");
 
 let initialTemp = inputTempSelect.value;
 let initialTempValue = tempInput.value;
